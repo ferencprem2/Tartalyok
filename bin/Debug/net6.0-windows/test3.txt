@@ -1,2 +1,0 @@
-asd: 620 289,0 cm3 = (620,29 liter), töltöttsége: 0,00%, (0,00 liter), méretei: 123x123x41 cm
-as32: 1 000,0 cm3 = (1,00 liter), töltöttsége: 0,00%, (0,00 liter), méretei: 10x10x10 cm

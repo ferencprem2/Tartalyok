@@ -26,8 +26,8 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-
-
+            Tartaly nagytartaly = new Tartaly(txtNev.Text, 500, 200, 120);
+            Tartaly literes = new Tartaly(txtNev.Text, 10, 10, 10);
 
         }
 
@@ -94,15 +94,39 @@ namespace WpfApp1
 
         private void btnDuplaz_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (lbTartalyok.SelectedIndex >= 0)
+                {
+                    tartalyLista[lbTartalyok.SelectedIndex].DuplazMeretet();
+                    lbTartalyok.Items[lbTartalyok.SelectedIndex] = tartalyLista[lbTartalyok.SelectedIndex].Info();
+                }
+                else
+                {
+                    MessageBox.Show("Válasszon ki egy elemet");
+                }
+            }
+            catch (Exception err)
+            {
 
+                MessageBox.Show(err.Message);
+                throw;
+            }
         }
 
         private void btnLeenged_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                MessageBox.Show(lbTartalyok.SelectedItem.ToString());
-                
+                if (lbTartalyok.SelectedIndex >= 0)
+                {
+                    tartalyLista[lbTartalyok.SelectedIndex].TeljesLeengedes();
+                    lbTartalyok.Items[lbTartalyok.SelectedIndex] = tartalyLista[lbTartalyok.SelectedIndex].Info();
+                } 
+                else
+                {
+                    MessageBox.Show("Válasszon ki egy elemet");
+                }                
             }
             catch (Exception err)
             {
@@ -114,7 +138,24 @@ namespace WpfApp1
 
         private void btntolt_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (lbTartalyok.SelectedIndex >= 0)
+                {
+                    tartalyLista[lbTartalyok.SelectedIndex].Tolt(Convert.ToDouble(txtMennyitTolt.Text));
+                    lbTartalyok.Items[lbTartalyok.SelectedIndex] = tartalyLista[lbTartalyok.SelectedIndex].Info();
+                }
+                else
+                {
+                    MessageBox.Show("Válasszon ki egy elemet");
+                }
+            }
+            catch (Exception err)
+            {
 
+                MessageBox.Show(err.Message);
+                throw;
+            }
         }
     }
 }
